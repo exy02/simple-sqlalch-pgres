@@ -13,15 +13,25 @@ cleaning, analysis, and visualization. A simplified SQL Alchemy integration for 
 2. SSH currently only supports pem certificate authentication 
 
 ### EXAMPLES:
-
+  
+p_host = '123.0.0.0'  
+p_port = 5432  
+db = 'database_name'  
+ssh = True  
+ssh_user = 'ssh_user'  
+ssh_host = 'ip address or web address'  
+ssh_pkey = '/path/to/user_authentication.pem'  
+pgres = Postgresql_connect(pgres_host=p_host, pgres_port=p_port, db=db, ssh=ssh, ssh_user=ssh_user, ssh_host=ssh_host, ssh_pkey=ssh_pkey)  
+#initiates connection to PostgreSQL database. In this instance we use ssh and must specify our ssh credentials.
+  
 pgres.schemas(db='database_name')
 #returns the number of schemas and all schema names within the specified database as a pandas dataframe
-
-
+  
+  
 pgres.tables(db='database_name',schema='schema_name')
 #returns the number of tables and all table names within the specified schema as a pandas dataframe
-
-
+  
+  
 sql_statement = """  
     SELECT column_name, data_type  
     FROM information_schema.columns  
