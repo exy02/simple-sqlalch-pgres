@@ -22,12 +22,12 @@ pgres.tables(db='database_name',schema='schema_name')
 #returns the number of tables and all table names within the specified schema as a pandas dataframe
 
 
-sql_statement = """
-    SELECT column_name, data_type 
-    FROM information_schema.columns
-    WHERE table_name = 'ey_test_table'
+sql_statement = """  
+    SELECT column_name, data_type  
+    FROM information_schema.columns  
+    WHERE table_name = 'ey_test_table'  
     ;
-    """
-query_df = pgres.query(db='database_name', query=sql_statement)
-query_df
+    """  
+query_df = pgres.query(db='database_name', query=sql_statement)  
+query_df  
 #returns the results of an sql statement as a pandas dataframe. This example returns the column names and data types of table 'ey_test_table'.
