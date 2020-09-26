@@ -1,15 +1,17 @@
 # simple_sqlalch_pgres
 A pythonic way to interact with postgreSQL databases to query data as pandas dataframe for manipulation,  
 cleaning, analysis, and visualization. A simplified SQL Alchemy integration for postgreSQL databases with  
-(or without) ssh enabled.
+(or without) ssh enabled. Check out my story post about this repo [here](https://medium.com/@erikyan02/how-to-query-postgresql-using-python-with-ssh-in-3-steps-cde626444817)
   
 ### Includes functionality from:
-1. SSHTunnelForwarder
-2. SQL Alchemy
-3. Pandas
+1. SSHTunnelForwarder  
+2. Paramiko
+3. SQL Alchemy  
+4. Pandas  
 
 ### ASSUMPTIONS:
-1. Must initiate psql_user and psql_password arguments to successfully access postgres remotely. Best practice is to use environment variables, however getpass may be used in-place
+1. Must initiate psql_user and psql_password arguments to successfully access postgres remotely.  
+Best practice is to use environment variables, however getpass may be used in-place  
 2. SSH currently only supports pem certificate authentication 
 
 ### EXAMPLES:
@@ -40,4 +42,5 @@ sql_statement = """
     """  
 query_df = pgres.query(db='database_name', query=sql_statement)  
 query_df  
-#returns the results of an sql statement as a pandas dataframe. This example returns the column names and data types of table 'ey_test_table'.
+#returns the results of an sql statement as a pandas dataframe. 
+#This example returns the column names and data types of table 'ey_test_table'.
