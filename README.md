@@ -16,6 +16,7 @@ Best practice is to use environment variables, however getpass may be used in-pl
 
 ### EXAMPLES:
   
+```python
 p_host = '123.0.0.0'  
 p_port = 5432  
 db = 'database_name'  
@@ -50,3 +51,4 @@ query_df = pgres.query(db='database_name', query=sql_statement)
 query_df  
 #returns the results of an sql statement as a pandas dataframe.  
 #This example returns the column names and data types of table 'ey_test_table'.
+```
