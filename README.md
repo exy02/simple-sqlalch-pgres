@@ -25,7 +25,13 @@ ssh_host = 'ip address or web address'
 ssh_pkey = '/path/to/user_authentication.pem'  
 pgres = Postgresql_connect(pgres_host=p_host, pgres_port=p_port, db=db, ssh=ssh, ssh_user=ssh_user, ssh_host=ssh_host, ssh_pkey=ssh_pkey)  
 #initiates connection to PostgreSQL database. In this instance we use ssh and must specify our ssh credentials.
-  
+
+#You'll need to define psql_user and psql_pass using input() and getpass() to temporarily store your credentials.
+#Alternatively, best practice may be to store your credentials as environment variables.
+psql_user = input("Please enter your database username:")
+psql_pass = getpass.getpass(f"Welcome {psql_user}! || Password:") 
+
+
 pgres.schemas(db='database_name')  
 #returns the number of schemas and all schema names within the specified database as a pandas dataframe  
   
